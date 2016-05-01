@@ -21,12 +21,12 @@ angular.module('ambermothersday2016App')
           $state.go(referrer);
         }
       })
-      .state('signup', {
-        url: '/signup',
-        templateUrl: 'app/account/signup/signup.html',
-        controller: 'SignupController',
-        controllerAs: 'vm'
-      })
+      // .state('signup', {
+      //   url: '/signup',
+      //   templateUrl: 'app/account/signup/signup.html',
+      //   controller: 'SignupController',
+      //   controllerAs: 'vm'
+      // })
       .state('settings', {
         url: '/settings',
         templateUrl: 'app/account/settings/settings.html',

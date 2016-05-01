@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="panel-group" id="coupons" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default" ng-repeat="coupon in vm.coupons | orderBy:'used'">
+      <div class="panel-heading" role="tab" id="heading{{::$index}}">
+        <h2 class="h4 panel-title">
+          <a role="button" class="collapsed" data-toggle="collapse" data-parent="#coupons" href="#collapse{{::$index}}" aria-expanded="true" aria-controls="collapse{{::$index}}">
+            {{coupon.title}}
+          </a>
+          <small ng-if="coupon.used">[Used]</small>
+        </h2>
+      </div>
+      <div id="collapse{{::$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{::$index}}">
+        <div class="panel-body">
+          {{coupon.description}}
+          <button class="btn btn-default btn-large" ng-click="vm.markUsed(coupon)">Use this Coupon</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

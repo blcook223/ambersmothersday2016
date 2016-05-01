@@ -28,7 +28,7 @@ angular.module('ambermothersday2016App.auth')
           }
 
           event.preventDefault();
-          $state.go('main');
+          $state.go('login');
         });
       }
     });

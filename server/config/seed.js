@@ -4,38 +4,47 @@
  */
 
 'use strict';
-import Thing from '../api/thing/thing.model';
+import Coupon from '../api/coupon/coupon.model';
 import User from '../api/user/user.model';
 
-Thing.find({}).remove()
+Coupon.find({}).remove()
   .then(() => {
-    Thing.create({
-      name: 'Development Tools',
-      info: 'Integration with popular tools such as Bower, Grunt, Babel, Karma, ' +
-             'Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, ' +
-             'Stylus, Sass, and Less.'
+    Coupon.create({
+      title: 'Mom\'s Night Out',
+      description: 'I\'ll watch the kid(s) while you go out and enjoy a guilt-free afternoon and/or evening of fun in Charleston.',
+      used: false
     }, {
-      name: 'Server and Client integration',
-      info: 'Built with a powerful and fun stack: MongoDB, Express, ' +
-             'AngularJS, and Node.'
+      title: 'Mom\'s Night In',
+      description: 'I\'ll take the kid(s) out for an afternoon and evening while you enjoy a house to yourself. When it\'s time for bed, I\'ll do bedtime, then clear out again.',
+      used: false
     }, {
-      name: 'Smart Build System',
-      info: 'Build system ignores `spec` files, allowing you to keep ' +
-             'tests alongside code. Automatic injection of scripts and ' +
-             'styles into your index.html'
+      title: 'Massage',
+      description: 'I\'ll give you a relaxing, full-body massage (including feet).',
+      used: false
     }, {
-      name: 'Modular Structure',
-      info: 'Best practice client and server structures allow for more ' +
-             'code reusability and maximum scalability'
+      title: 'New Purchase for House',
+      description: 'Let\'s go out a pick out a new item for our home, such as a rug, furniture, or decoration.',
+      used: false
     }, {
-      name: 'Optimized Build',
-      info: 'Build process packs up your templates as a single JavaScript ' +
-             'payload, minifies your scripts/css/images, and rewrites asset ' +
-             'names for caching.'
+      title: 'Date Night Out',
+      description: 'I\'ll find us a babysitter and plan a night out on the town in Charleston.',
+      used: false
     }, {
-      name: 'Deployment Ready',
-      info: 'Easily deploy your app to Heroku or Openshift with the heroku ' +
-             'and openshift subgenerators'
+      title: 'Date Night In',
+      description: 'I\'ll plan an evening of post bed-time movies, games, eating, and drinking.',
+      used: false
+    }, {
+      title: 'Dessert',
+      description: 'After bedtime, I\'ll run to Dairy Queen, Sonic, the Cheesecake Factory or somewhere else to pick us up a dessert.',
+      used: false
+    }, {
+      title: 'Trip to the Beach',
+      description: 'We\'ll pack up and spend an afternoon at the beach of your choice.',
+      used: false
+    }, {
+      title: 'Explore our New Neighborhood',
+      description: 'Let\'s go on a walk or drive and find something fun to do in our new neighborhood.',
+      used: false
     });
   });
 
@@ -43,15 +52,15 @@ User.find({}).remove()
   .then(() => {
     User.create({
       provider: 'local',
-      name: 'Test User',
-      email: 'test@example.com',
-      password: 'test'
+      name: 'Amber',
+      email: 'amber.caroline.cook@gmail.com',
+      password: 'BukaHead1'
     }, {
       provider: 'local',
       role: 'admin',
-      name: 'Admin',
-      email: 'admin@example.com',
-      password: 'admin'
+      name: 'Ben',
+      email: 'benjamin.l.cook@gmail.com',
+      password: 'BukaHead1'
     })
     .then(() => {
       console.log('finished populating users');
