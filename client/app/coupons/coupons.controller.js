@@ -4,9 +4,12 @@
 
 class CouponsController {
 
-  constructor($http) {
+  constructor($http, Auth) {
     this._$http = $http;
 
+    Auth.getCurrentUser(user => {
+      this.user = user;
+    });
     this._$http.get('/api/coupons')
       .then(res => {
         this.coupons = res.data;

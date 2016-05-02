@@ -1,8 +1,9 @@
 <div class="container">
+  <h1>{{vm.user.name}}'s Coupons</h1>
   <div class="panel-group" id="coupons" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default" ng-repeat="coupon in vm.coupons | orderBy:'used'">
       <div class="panel-heading" role="tab" id="heading{{::$index}}">
-        <h2 class="h4 panel-title">
+        <h2 class="panel-title">
           <a role="button" class="collapsed" data-toggle="collapse" data-parent="#coupons" href="#collapse{{::$index}}" aria-expanded="true" aria-controls="collapse{{::$index}}">
             {{coupon.title}}
           </a>
