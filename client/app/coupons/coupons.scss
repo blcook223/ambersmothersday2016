@@ -1,0 +1,16 @@
+.img-row {
+  margin-top: 24px;
+}
+.img-clipped {
+  height: 145px;
+  object-fit: cover;
+}
+
+.panel-primary {
+  border-color: $amd-primary;
+
+  .panel-heading {
+    background-color: $amd-primary;
+    color: $amd-primary-text;
+  }
+}

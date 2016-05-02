@@ -3,6 +3,9 @@ $icon-font-path: "../bower_components/bootstrap/fonts/";
 $fa-font-path: "../bower_components/font-awesome/fonts";
 @import '../bower_components/font-awesome/scss/font-awesome';
 
+$amd-primary: #aa3939;
+$amd-primary-text: #f5f5f5;
+
 /**
  * App-wide Styles
  */
@@ -17,6 +20,8 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
 // Component styles are injected through grunt
 /* inject:scss */
 @import 'admin/admin';
+@import 'coupons/coupons';
 @import 'main/main';
 @import '../components/footer/footer';
+@import '../components/navbar/navbar';
 /* endinject */

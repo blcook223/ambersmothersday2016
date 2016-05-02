@@ -1,21 +1,54 @@
 <div class="container">
-  <h1>{{vm.user.name}}'s Coupons</h1>
-  <div class="panel-group" id="coupons" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-default" ng-repeat="coupon in vm.coupons | orderBy:'used'">
-      <div class="panel-heading" role="tab" id="heading{{::$index}}">
-        <h2 class="panel-title">
-          <a role="button" class="collapsed" data-toggle="collapse" data-parent="#coupons" href="#collapse{{::$index}}" aria-expanded="true" aria-controls="collapse{{::$index}}">
-            {{coupon.title}}
-          </a>
-          <small ng-if="coupon.used">[Used]</small>
-        </h2>
+  <div class="row img-row">
+    <img src="/assets/images/atticus_and_mom.jpg" alt="Amber and Atticus" class="img-clipped img-responsive col-sm-3">
+    <img src="/assets/images/amber_and_ben.jpg" alt="Amber and Ben" class="img-clipped img-responsive col-sm-3">
+    <img src="/assets/images/charlie_bday.jpg" alt="Family at Charlie's birthday" class="img-clipped img-responsive col-sm-3">
+    <img src="/assets/images/outer_banks.jpg" alt="Family at Outer Banks" class="img-clipped img-responsive col-sm-3">
+  </div>
+  <div class="row">
+    <section class="col-sm-6 col-sm-push-3">
+      <h1>{{vm.user.name}}'s Coupons</h1>
+      <div class="panel-group" id="coupons" role="tablist" aria-multiselectable="true">
+        <article class="panel panel-primary" ng-repeat="coupon in vm.coupons | filter:{ 'used': false }">
+          <div class="panel-heading" role="tab" id="heading{{::$index}}">
+            <h2 class="panel-title">
+              <a role="button" class="collapsed" data-toggle="collapse" data-parent="#coupons" href="#collapse{{::$index}}" aria-expanded="true" aria-controls="collapse{{::$index}}">
+                {{coupon.title}}
+              </a>
+            </h2>
+          </div>
+          <div id="collapse{{::$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{::$index}}">
+            <div class="panel-body">
+              {{coupon.description}}
+              <p>
+                <button class="btn btn-default btn-large" ng-click="vm.markUsed(coupon)">Use this Coupon</button>
+              </p>
+            </div>
+          </div>
+        </article>
       </div>
-      <div id="collapse{{::$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{::$index}}">
-        <div class="panel-body">
-          {{coupon.description}}
-          <button class="btn btn-default btn-large" ng-click="vm.markUsed(coupon)">Use this Coupon</button>
-        </div>
+    </section>
+  </div>
+
+  <div class="row">
+    <section class="col-sm-6 col-sm-push-3" ng-if="(vm.coupons|filter:{'used':true}).length">
+      <h2>Used Coupons</h2>
+      <div class="panel-group" id="usedCoupons" role="tablist" aria-multiselectable="true">
+        <article class="panel panel-default" ng-repeat="coupon in vm.coupons | filter:{ 'used': true }">
+          <div class="panel-heading" role="tab" id="headingUsed{{::$index}}">
+            <h2 class="panel-title">
+              <a role="button" class="collapsed" data-toggle="collapse" data-parent="#usedCoupons" href="#collapseUsed{{::$index}}" aria-expanded="true" aria-controls="collapseUsed{{::$index}}">
+                {{coupon.title}}
+              </a>
+            </h2>
+          </div>
+          <div id="collapseUsed{{::$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingUsed{{::$index}}">
+            <div class="panel-body">
+              {{coupon.description}}
+            </div>
+          </div>
+        </article>
       </div>
-    </div>
+    </section>
   </div>
 </div>
